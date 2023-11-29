@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="fontawesome/css/brands.css" rel="stylesheet">
+    <link href="fontawesome/css/solid.css" rel="stylesheet">
+    <title>Crear Carro en Stock</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Crear Carro en Stock</h2>
+
+        <form id="crearCarroForm">
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" required>
+            </div>
+
+            <div class="form-group">
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Color:</label>
+                <input type="text" id="color" name="color" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ano">Año:</label>
+                <input type="number" id="ano" name="ano" required>
+            </div>
+
+            <div class="form-group">
+                <label for="combustible">Combustible:</label>
+                <input type="text" id="combustible" name="combustible" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tipo">Tipo:</label>
+                <input type="text" id="tipo" name="tipo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="capacidad">Capacidad:</label>
+                <input type="number" id="capacidad" name="capacidad" required>
+            </div>
+
+            <div class="form-group">
+                <label for="seguridad">Seguridad:</label>
+                <input type="text" id="seguridad" name="seguridad" required>
+            </div>
+
+            <div class="form-group">
+                <label for="transmision">Transmisión:</label>
+                <input type="text" id="transmision" name="transmision" required>
+            </div>
+
+            <div class="form-group">
+                <label for="infoentretenimiento">Infoentretenimiento:</label>
+                <input type="text" id="infoentretenimiento" name="infoentretenimiento" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Guardar Carro</button>
+                <button type="button" id="limpiarCampos">Limpiar Campos</button>
+                <button type="button" id="atras" onclick="vistaIndex()">Atrás</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

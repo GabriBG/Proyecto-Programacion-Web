@@ -53,8 +53,7 @@ const cars = [
 
 
 
-
-function createCarRow(car, table) {
+function crearFilaCarros(car, table) {
   const row = table.insertRow();
 
   const idCell = row.insertCell();
@@ -85,14 +84,59 @@ function createCarRow(car, table) {
   actionsCell.appendChild(deleteButton);
 }
 
+const carroXPagina = 10;
+let paginaActual = 1;
+
+function actualizarTabla() {
+  const table = document.getElementById('carsTable');
+  table.innerHTML = '';
+
+  const startIndex = (paginaActual - 1) * carroXPagina;
+  const endIndex = startIndex + carroXPagina;
+
+  cars.slice(startIndex, endIndex).forEach(car => {
+    crearFilaCarros(car, table);
+  });
+}
+
+function actualizarBotonesPaginacion() {
+  const anteriorBtn = document.getElementById('Anterior');
+  const siguienteBtn = document.getElementById('Siguiente');
+  const actualSpan = document.getElementById('Actual');
+
+  anteriorBtn.disabled = paginaActual === 1;
+  siguienteBtn.disabled = paginaActual === Math.ceil(cars.length / carroXPagina);
+
+  actualSpan.textContent = paginaActual;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const table = document.getElementById('carsTable');
 
   cars.forEach(car => {
-    createCarRow(car, table);
+    crearFilaCarros(car, table);
   });
 
+  actualizarTabla();
+  actualizarBotonesPaginacion();
+
+  document.getElementById('Anterior').addEventListener('click', function () {
+    if (paginaActual > 1) {
+      paginaActual--;
+        actualizarTabla();
+        actualizarBotonesPaginacion();
+    }
 });
+
+document.getElementById('Siguiente').addEventListener('click', function () {
+    if (paginaActual < Math.ceil(cars.length / carroXPagina)) {
+      paginaActual++;
+        actualizarTabla();
+        actualizarBotonesPaginacion();
+    }
+});
+
+}); 
 
 const crearCarroForm = document.getElementById("crearCarroForm");
 const limpiarCamposBtn = document.getElementById("limpiarCampos");
