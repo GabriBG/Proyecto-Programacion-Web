@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="fontawesome/css/brands.css" rel="stylesheet">
+    <link href="fontawesome/css/solid.css" rel="stylesheet">
+    <title>PROYECTO FINAL</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Tabla de Carros</h2>
+        <button class="btn btn-primary" id="newCarButton" onclick="vistaCrear()">
+                Nuevo Carro
+        </button>
+
+        <table class="table" id="carsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Año</th>
+                    <th>Tipo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se cargarán las filas de la tabla dinámicamente con JavaScript -->
+            </tbody>
+        </table>
+
+        <!-- Paginado (puedes implementar paginado con JavaScript) -->
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <!-- Modal para crear un nuevo elemento -->
+    <div class="modal" id="crearCarroModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Contenido del modal, aquí puedes agregar los campos para crear un nuevo elemento -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
