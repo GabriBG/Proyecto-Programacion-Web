@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+header {
+    background: #8E0E00;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #1f1c18c6, #8e0e00b0),url(../img/Fondo.jpg);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #1f1c18b9, #8e0e00c5),url(../img/Fondo.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+    width: 100%;
+    height: 600px;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+
+}
+
+nav {
+    text-align: right;
+    padding: 30px 50px 0 0;
+}
+
+nav>a {
+    color: #FFF;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+nav>a:hover {
+    text-decoration: underline;
+}
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.textos-header h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #000000;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+}
+
+.textos-header h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+header .textos-header {
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+body{
+    margin: 0 0 0 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body form{
+    margin: 100px 350px 0 300px;
+}
+
+body .forma{
+    margin: 30px 40% 30px 40%;
+    font-family: 'Tilt Neon', bold;
+    font-size: 50px;
+}
+.color{
+    background: rgb(122, 7, 7);
+    color:white;
+}
+
+footer {
+    background: #414141;
+    padding: 60px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+.contenedor-footer {
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+}
+
+.content-foo {
+    text-align: center;
+}
+
+.content-foo h4 {
+    color: #fff;
+    border-bottom: 3px solid #d32020;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.content-foo p {
+    color: #ccc;
+}
+
+.titulo-final {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+    color: #ffffff;
+}
+#cabecero {
+    background-color: #3f51b5;
+    text-align: center;
+  }
+  .contenido {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  }
+  .elemento {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .elemento:last-child {
+    border-bottom: 0;
+  }
+  
+  input[type="checkbox"] {
+    margin: 20px;
+  }

@@ -56,6 +56,7 @@ const cars = [
 
 function createCarRow(car, table) {
   if (table && table.insertRow) {
+function crearFilaCarros(car, table) {
   const row = table.insertRow();
 
   const idCell = row.insertCell();
@@ -94,10 +95,10 @@ function createCarRow(car, table) {
     eliminarCarro(car.id);
   });
 
-} else {
+}} else {
   console.error("La tabla no es un objeto válido o no tiene el método insertRow.");
 }
-}
+  };
 
 function editarCarro(carId) {
   const table = document.getElementById('carsTable');
@@ -116,38 +117,59 @@ function eliminarCarro(carId) {
   console.log('Eliminar carro con ID:', carId);
 }
 
+const carroXPagina = 10;
+let paginaActual = 1;
+
+function actualizarTabla() {
+  const table = document.getElementById('carsTable');
+  table.innerHTML = '';
+
+  const startIndex = (paginaActual - 1) * carroXPagina;
+  const endIndex = startIndex + carroXPagina;
+
+  cars.slice(startIndex, endIndex).forEach(car => {
+    crearFilaCarros(car, table);
+  });
+}
+
+function actualizarBotonesPaginacion() {
+  const anteriorBtn = document.getElementById('Anterior');
+  const siguienteBtn = document.getElementById('Siguiente');
+  const actualSpan = document.getElementById('Actual');
+
+  anteriorBtn.disabled = paginaActual === 1;
+  siguienteBtn.disabled = paginaActual === Math.ceil(cars.length / carroXPagina);
+
+  actualSpan.textContent = paginaActual;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const table = document.getElementById('carsTable');
 
   cars.forEach(car => {
-    createCarRow(car, table);
+    crearFilaCarros(car, table);
   });
 
+  actualizarTabla();
+  actualizarBotonesPaginacion();
+
+  document.getElementById('Anterior').addEventListener('click', function () {
+    if (paginaActual > 1) {
+      paginaActual--;
+        actualizarTabla();
+        actualizarBotonesPaginacion();
+    }
 });
 
-function llenarCampos(carId) {
-  const carro = obtenerCarroPorId(carId);
+document.getElementById('Siguiente').addEventListener('click', function () {
+    if (paginaActual < Math.ceil(cars.length / carroXPagina)) {
+      paginaActual++;
+        actualizarTabla();
+        actualizarBotonesPaginacion();
+    }
+});
 
-  document.getElementById('marca_edit').value = carro.marca;
-  document.getElementById('modelo_edit').value = carro.modelo;
-  document.getElementById('color_edit').value = carro.color;
-  document.getElementById('ano_edit').value = carro.año;
-  document.getElementById('combustible_edit').value = carro.combustible;
-  document.getElementById('tipo_edit').value = carro.tipo;
-  document.getElementById('capacidad_edit').value = carro.capacidad;
-  document.getElementById('seguridad_edit').value = carro.seguridad;
-  document.getElementById('transmision_edit').value = carro.transmision;
-  document.getElementById('infoentretenimiento_edit').value = carro.infoentretenimiento;
-
-  document.getElementById('editarCarroForm').dataset.id = carId;
-}
-
-
-
-function obtenerCarroPorId(carId) {
-  const carro = cars.find(car => car.id === parseInt(carId));
-  return carro || {};
-}
+}); 
 
 const crearCarroForm = document.getElementById("crearCarroForm");
 const limpiarCamposBtn = document.getElementById("limpiarCampos");

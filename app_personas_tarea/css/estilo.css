@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    margin: 0 0 0 0;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+body h1{
+    margin: 30px 0 25px 10px;
+    font-family: 'Open Sans', sans-serif;
+
+}
+.buttom{
+    margin: 30px 0 0 10px;
+}
+
+body form{
+    margin: 50px 300px 0 300px;
+
+}
+form label{
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+}
+body .forma{
+    margin: 30px 40% 30px 40%;
+    font-family: 'Tilt Neon', bold;
+    font-size: 50px;
+}

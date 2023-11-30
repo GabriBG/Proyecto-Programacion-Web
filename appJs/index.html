@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Listado de personas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+
+</head>
+
+<body onload="mostrarPersonas()">
+    <div class='contenedor' id='cabecera'>
+        <h1>Listado de Personas</h1>
+    </div>
+    <div class="contenedor">
+        <div class="elemento">
+            <ul id="personas">
+
+            </ul>
+        </div>
+    </div>
+    <div class="contenedor">
+        <div style="text-align: center;">
+            <button style="cursor:pointer" onclick="agregarPersona()">+</button>
+        </div>
+        <form action="" id="form1">
+            <input type="text" name="nombre" id='nombre' placeholder="Nombre" />
+            <input type="text" name="cedula" id="cedula" placeholder="Cedula" />
+            <input type="text" name="correo" id="correo" placeholder="Correo" />
+            <input type="text" name="asignatura" id="asignatura" placeholder="Asignatura" />
+            <input type="text" name="grupo" id="grupo" placeholder="Grupo" />
+            <input type="text" name="solicitud" id="solicitud" placeholder="Solicitud" />
+        </form>
+
+    </div>
+    <script src="js/persona.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
