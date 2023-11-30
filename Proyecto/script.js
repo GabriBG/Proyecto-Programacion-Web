@@ -55,6 +55,7 @@ const cars = [
 
 
 function createCarRow(car, table) {
+  if (table && table.insertRow) {
   const row = table.insertRow();
 
   const idCell = row.insertCell();
@@ -83,6 +84,36 @@ function createCarRow(car, table) {
   deleteIcon.className = 'fas fa-trash-alt';
   deleteButton.appendChild(deleteIcon);
   actionsCell.appendChild(deleteButton);
+
+
+  editButton.addEventListener('click', function () {
+    editarCarro(car.id);
+  });
+
+  deleteButton.addEventListener('click', function () {
+    eliminarCarro(car.id);
+  });
+
+} else {
+  console.error("La tabla no es un objeto válido o no tiene el método insertRow.");
+}
+}
+
+function editarCarro(carId) {
+  const table = document.getElementById('carsTable');
+
+  if (table) {
+      location.href = "edit.html";
+      llenarCampos(carId);
+      console.log('Editar carro con ID:', carId);
+  } else {
+      console.error("No se encontró el elemento de la tabla (carsTable).");
+  }
+}
+
+
+function eliminarCarro(carId) {
+  console.log('Eliminar carro con ID:', carId);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -94,13 +125,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+function llenarCampos(carId) {
+  const carro = obtenerCarroPorId(carId);
+
+  document.getElementById('marca_edit').value = carro.marca;
+  document.getElementById('modelo_edit').value = carro.modelo;
+  document.getElementById('color_edit').value = carro.color;
+  document.getElementById('ano_edit').value = carro.año;
+  document.getElementById('combustible_edit').value = carro.combustible;
+  document.getElementById('tipo_edit').value = carro.tipo;
+  document.getElementById('capacidad_edit').value = carro.capacidad;
+  document.getElementById('seguridad_edit').value = carro.seguridad;
+  document.getElementById('transmision_edit').value = carro.transmision;
+  document.getElementById('infoentretenimiento_edit').value = carro.infoentretenimiento;
+
+  document.getElementById('editarCarroForm').dataset.id = carId;
+}
+
+
+
+function obtenerCarroPorId(carId) {
+  const carro = cars.find(car => car.id === parseInt(carId));
+  return carro || {};
+}
+
 const crearCarroForm = document.getElementById("crearCarroForm");
 const limpiarCamposBtn = document.getElementById("limpiarCampos");
 const atrasBtn = document.getElementById("atras");
 
 crearCarroForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  // Lógica para guardar el carro en el backend
 });
 
 limpiarCamposBtn.addEventListener("click", function () {
@@ -111,15 +165,8 @@ atrasBtn.addEventListener("click", function () {
   window.location.href = "index.html";
 });
 
-function vistaModal() {
-  location.href = "modal.html";
-  }
-
-function vistaEditar() {
-  location.href = "edit.html";
-  }
-
 
 function vistaCrear() {
 location.href = "create.html";
 }
+
